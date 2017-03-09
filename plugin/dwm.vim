@@ -16,7 +16,10 @@ function! s:action.func(candidates)
     call unite#take_action('open', candidate)
   endfor
 endfunction
-call unite#custom_action('openable', 'dwm_new', s:action)
+try
+    call unite#custom_action('openable', 'dwm_new', s:action)
+catch 
+endtry
 unlet s:action
 
 let &cpo = s:save_cpo
